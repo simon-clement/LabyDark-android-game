@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="MainVertexShader">
+        "uniform mat4 uViewMatrix;\n
+        uniform mat4 uTransMatrix;\n
+        uniform vec3 uCentre;\n
+        attribute vec4 aPosition;\n
+        attribute vec2 aTextureCoord;\n
+        varying vec2 vTextureCoord;\n
+        const mediump float a=0.001;\n
+        void main() {\n
+          vec4 finalPos = uTransMatrix * aPosition;\n
+          vec3 diff = finalPos.xyz - uCentre;\n
+          vec3 height= normalize(vec3(diff.x,0.5/a,diff.z)) * diff.y;\n
+          finalPos.y =uCentre.y - a*diff.x*diff.x - a*diff.z*diff.z;\n
+          finalPos.xyz+=height;\n
+          vTextureCoord = aTextureCoord;\n
+          gl_Position = uViewMatrix * finalPos;\n
+        }\n"
+    </string>
+    <string name="MainFragmentShader">
+        "precision highp float;\n
+        varying vec2 vTextureCoord;\n
+        uniform sampler2D sTexture;\n
+        uniform float uRalenti;\n
+        uniform vec2 uCentreEcran;\n
+        void main() {\n
+          if (0.5 > uRalenti) { \n
+             gl_FragColor=texture2D(sTexture,vTextureCoord);\n
+          } else {\n
+             gl_FragColor=texture2D(sTexture,vTextureCoord)+vec4(0.8,0.8,0.8,0.0)*distance(gl_FragCoord.xy,uCentreEcran)/length(uCentreEcran);\n
+          }\n
+        }\n"
+    </string>
+
+    <string name="BouleVertexShader">
+        "uniform mat4 uViewMatrix;\n
+        uniform mat4 uTransMatrix;\n
+        attribute vec4 aPosition;\n
+        attribute vec2 aTextureCoord;\n
+        varying vec2 vTextureCoord;\n
+        void main() {\n
+          vec4 finalPos = uTransMatrix * aPosition;\n
+          vTextureCoord = aTextureCoord;\n
+          gl_Position = uViewMatrix * finalPos;\n
+        }\n"
+    </string>
+</resources>

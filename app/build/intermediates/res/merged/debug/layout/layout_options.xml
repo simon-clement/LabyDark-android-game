@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/frame_layout_options">
+
+    <com.blblbl.torus.menu.MenuFondView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/MenuFondViewOptions" />
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/layout_relative_options"
+        android:clickable="false"
+        android:transitionGroup="true">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/stringOptions"
+            android:id="@+id/titreOptions"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="italic"
+            android:textSize="70sp"
+            android:textColor="@color/titreMenu" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titreOptions"
+            android:layout_alignLeft="@+id/titreOptions"
+            android:layout_alignStart="@+id/titreOptions"
+            android:layout_alignRight="@+id/titreOptions"
+            android:layout_alignEnd="@+id/titreOptions"
+            android:id="@+id/radioGroupTouchChoice">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toucher pour tourner"
+                android:id="@+id/radioTouchTrue"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orienter l&apos;écran pour tourner"
+                android:id="@+id/radioTouchFalse"
+                android:checked="false" />
+        </RadioGroup>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BarSensibilite"
+            android:layout_gravity="center_horizontal"
+            android:progress="50"
+            android:indeterminate="false"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Sensibilité"
+            android:id="@+id/textView"
+            android:layout_gravity="right|top"
+            android:layout_below="@+id/radioGroupTouchChoice"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+</FrameLayout>

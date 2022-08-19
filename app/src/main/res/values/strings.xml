@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LabyDark</string>
+    <string name="stringOptions">Options</string>
+    <string name="stringJouer">Jouer</string>
+    <string name="stringYouDied">WASTED</string>
+    <string name="stringTryAgain">Try again</string>
+    <string name="stringScoreInGame">Score: %d</string>
+    <string name="stringNumber">%d</string>
+    <string name="stringSharedPreferencesOptions">blblbl.sharedPreferences.options</string>
+    <string name="stringPrefsModeTouch">blblbl.sharedPreferences.options.modeTouch</string>
+    <string name="stringPrefsSensibilite">blblbl.sharedPreferences.options.sensi</string>
+</resources>
